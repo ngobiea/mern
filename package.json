@@ -7,7 +7,7 @@
     "build": "tsc && npm install && npm install --prefix client && npm run build --prefix client",
     "watch": "tsc -w",
     "prestart": "npm run build",
-    "start": "nodemon .",
+    "start": "node .",
     "client": "npm run dev --prefix client",
     "server": "nodemon .",
     "dev": "concurrently --kill-others \"npm run watch\" \"npm run server\" \"npm run client\""
