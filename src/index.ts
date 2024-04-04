@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
-dotenv.config();
+// import dotenv from 'dotenv';
+// dotenv.config();
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
@@ -9,7 +9,7 @@ import helmet from 'helmet';
 // import { statusCode } from './utils/statusCode';
 import { join, resolve } from 'path';
 
-const { PORT } = process.env;
+const  PORT  = process.env.PORT || 5000;
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,9 +23,7 @@ app.use(helmet());
 // app.use('/', express.static(join(resolve(__dirname, '../src/public/'))));
 
 app.use(express.static(join(__dirname, '../client/dist/')));
-app.get('*', (_req, res) =>
-  res.sendFile(resolve(__dirname, '../client/dist'))
-);
+app.get('*', (_req, res) => res.sendFile(resolve(__dirname, '../client/dist')));
 
 // app.use((error: CustomError, _req: Request, res: Response) => {
 //   console.log(error.stack);
